@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #canvas{
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+            background: #fffacc;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Physics Engine</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">
+            <div class="flex-container">
+                <div class="flex-item" hidden>
+                    <button class="button" onclick=clickMove()>Move</button>
+                </div>
+                <div class="flex-item" hidden>
+                    <button class="button" onclick=clickDelete()>Delete</button>
+                </div>
+                <div class="flex-item" hidden>
+                    <button class="button" onclick=clickGravity()>Toggle gravity</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=pause()>Start / Pause</button>
+                </div>
+                <div class="flex-item">
+                    <button class="button" onclick=generatePendulum()>Generate pendulum</button>
+                </div>
+                <div class="flex-item" hidden>
+                    <button class="button" onclick=drawPoints()>Draw points</button>
+                </div>
+            </div>
+        </div>
+        <div class="flex-item">
+            <canvas id="canvas" tabindex=0 width="640" height="640"></canvas>
+        </div>
+        <div class="flex-item">
+            <div class="flex-container">
+                <div class="flex-item" id="spawnXContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="-300" max="300" value="0" class="range" id="spawnXRange">
+                        <p>Center X: <span id="spawnX"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="spawnYContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="-300" max="300" value="0" class="range" id="spawnYRange">
+                        <p>Center Y: <span id="spawnY"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="pendLenContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="20" max="150" value="60" class="range" id="pendLenRange">
+                        <p>Pendulum length: <span id="pendLen"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="pendNumContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="10" value="5" class="range" id="pendNumRange">
+                        <p>Pendulum count: <span id="pendNum"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="pendNumContainer">
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="360" value="90" class="range" id="pendDegRange">
+                        <p>Pendulum degree: <span id="pendDeg"></span></p>
+                    </div>
+                </div>
+                <div class="flex-item" id="colorContainer">
+                    <input type="color" id="color" name="color" value="#FF0000" class="color">
+                    <label for="color" class="color">Point color</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.2/math.min.js"></script>
+    <script src="physics.js"></script>
+    <script src="userInput.js"></script>
+    <script src="setup.js"></script>
+</body>
+</html>
